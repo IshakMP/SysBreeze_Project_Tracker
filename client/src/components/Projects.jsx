@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import ProjectCard from "./ProjectCard";
-import { GET_PROJETS } from "../requests/projectsQuery";
+import { GET_PROJECTS } from "../requests/projectQueries";
 
 export default function Projects() {
-  const { loading, err, data } = useQuery(GET_PROJETS);
+  const { loading, err, data } = useQuery(GET_PROJECTS);
 
   if (loading) return <div></div>;
   if (err) return <div>Something went wrong</div>;

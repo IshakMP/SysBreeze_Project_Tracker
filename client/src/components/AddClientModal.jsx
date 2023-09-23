@@ -1,13 +1,15 @@
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { ADD_CLIENT } from "../requests/clientsMutation";
-import { GET_CLIENTS } from "../requests/clientsQuery";
+import { ADD_CLIENT } from "../requests/clientMutations";
+import { GET_CLIENTS } from "../requests/clientQueries";
 
 export default function AddClientModal() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const modalCloseRef = useRef(null);
+
 
   const [addClient] = useMutation(ADD_CLIENT, {
     variables: { name, email, phone },
@@ -26,6 +28,8 @@ export default function AddClientModal() {
     setName("");
     setEmail("");
     setPhone("");
+    modalCloseRef.current.click();
+
   };
 
   return (
@@ -57,6 +61,7 @@ export default function AddClientModal() {
               <button
                 type="button"
                 className="btn-close"
+                ref={modalCloseRef}
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
