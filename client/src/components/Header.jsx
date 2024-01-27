@@ -10,6 +10,12 @@ export default function Header() {
             <div>Services Tracker</div>
           </div>
         </a>
+        <div className="ml-auto ">
+          {" "}
+          <a className="navbar-brand" href="https://www.sysbitech.com/">
+            <span> SYS BREEZE || </span>
+          </a>
+        </div>
       </div>
     </nav>
   );
